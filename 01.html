@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Your Name">
+    <meta name="description" content="Kiểm tra tam giác">
+    <title>Kiểm tra tam giác</title>
+</head>
+<body>
+
+<h1>Kiểm tra tam giác</h1>
+
+<label for="canhA">Nhập cạnh A:</label>
+<input type="text" id="canhA" placeholder="Nhập cạnh A">
+
+<label for="canhB">Nhập cạnh B:</label>
+<input type="text" id="canhB" placeholder="Nhập cạnh B">
+
+<label for="canhC">Nhập cạnh C:</label>
+<input type="text" id="canhC" placeholder="Nhập cạnh C">
+
+<button onclick="kiemTraTamGiac()">Kiểm tra</button>
+
+<p id="ketQua"></p>
+
+<script>
+    function kiemTraTamGiac() {
+        // Lấy giá trị các cạnh từ ô nhập liệu
+        var canhA = parseFloat(document.getElementById("canhA").value);
+        var canhB = parseFloat(document.getElementById("canhB").value);
+        var canhC = parseFloat(document.getElementById("canhC").value);
+
+        // Kiểm tra tam giác
+        if (kiemTraLaTamGiac(canhA, canhB, canhC)) {
+            if (canhA === canhB && canhB === canhC) {
+                document.getElementById("ketQua").innerHTML = "Tam giác đều.";
+            } else if (canhA === canhB || canhB === canhC || canhC === canhA) {
+                document.getElementById("ketQua").innerHTML = "Tam giác cân.";
+            } else {
+                document.getElementById("ketQua").innerHTML = "Tam giác thường.";
+            }
+        } else {
+            document.getElementById("ketQua").innerHTML = "Ba cạnh không tạo thành tam giác.";
+        }
+    }
+
+    function kiemTraLaTamGiac(a, b, c) {
+        // Kiểm tra điều kiện tam giác
+        return a + b > c && b + c > a && c + a > b;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Your Name">
+    <meta name="description" content="Kiểm tra năm nhuận">
+    <title>Kiểm tra năm nhuận</title>
+</head>
+<body>
+
+<h1>Kiểm tra năm nhuận</h1>
+
+<label for="namInput">Nhập năm:</label>
+<input type="text" id="namInput" placeholder="Nhập năm">
+
+<button onclick="kiemTraNam()">Kiểm tra</button>
+
+<p id="ketQua"></p>
+
+<script>
+    function kiemTraNam() {
+        // Lấy giá trị năm từ ô nhập liệu
+        var nam = document.getElementById("namInput").value;
+
+        // Chuyển đổi giá trị thành số nguyên
+        nam = parseInt(nam);
+
+        // Kiểm tra năm nhuận
+        if ((nam % 4 === 0 && nam % 100 !== 0) || (nam % 400 === 0)) {
+            document.getElementById("ketQua").innerHTML = nam + " là năm nhuận.";
+        } else {
+            document.getElementById("ketQua").innerHTML = nam + " không phải là năm nhuận.";
+        }
+    }
+</script>
+
+</body>
+</html>
